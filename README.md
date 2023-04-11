@@ -15,6 +15,5 @@ pip install openpyxl <br>
 ## Running the Scheduler
 1. To run the scheduler, navigate to the extracted folder in your terminal/command prompt window.
 2. Type the following command in the terminal to start the scheduler:
-python main.py <br>
-<br>
+<br>python main.py <br>
 That's it! You can now use the one-on-one scheduler for MDS-Rely Research Center. If you have any questions or issues, please feel free to contact the developer.
