@@ -2,8 +2,8 @@
 This repository contains the code for a one-on-one scheduler for MDS-Rely Research Center. Here are the installation instructions to run the code on your local machine:
 
 ## Prerequisites
-Python 3.x installed on your system <br>
-pip (Python package manager) installed on your system <br>
+* Python 3.x installed on your system <br>
+* pip (Python package manager) installed on your system <br>
 ## Installation
 1. Download the code by clicking on the green "Code" button at the top of the page and selecting "Download ZIP"
 2. Extract the downloaded ZIP file to your desired location
