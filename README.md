@@ -10,10 +10,9 @@ pip (Python package manager) installed on your system
 ## Setup
 1. Open a terminal/command prompt window and navigate to the location where you extracted the ZIP file.
 1. Type the following commands in the terminal to install the required dependencies:
-pip install pandas <br>
-pip install openpyxl <br>
+![image](https://user-images.githubusercontent.com/91906368/231220274-bc3bde1c-3257-41f0-aa8f-6f6f8c9475ea.png)
 ## Running the Scheduler
 1. To run the scheduler, navigate to the extracted folder in your terminal/command prompt window.
 2. Type the following command in the terminal to start the scheduler:
-<br>python main.py <br>
+![image](https://user-images.githubusercontent.com/91906368/231220462-5cbc4aee-c5d0-47ab-9f5b-4d93a5a2a314.png)
 That's it! You can now use the one-on-one scheduler for MDS-Rely Research Center. If you have any questions or issues, please feel free to contact the developer.
