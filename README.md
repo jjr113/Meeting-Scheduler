@@ -15,4 +15,4 @@ pip (Python package manager) installed on your system
 1. To run the scheduler, navigate to the extracted folder in your terminal/command prompt window.
 2. Type the following command in the terminal to start the scheduler:
 ![image](https://user-images.githubusercontent.com/91906368/231220462-5cbc4aee-c5d0-47ab-9f5b-4d93a5a2a314.png)
-That's it! You can now use the one-on-one scheduler for MDS-Rely Research Center. If you have any questions or issues, please feel free to contact the developer.
+<br>That's it! You can now use the one-on-one scheduler for MDS-Rely Research Center. If you have any questions or issues, please feel free to contact the developer.
