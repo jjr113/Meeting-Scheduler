@@ -10,9 +10,10 @@ This repository contains the code for a one-on-one scheduler for MDS-Rely Resear
 ## Setup
 1. Open a terminal/command prompt window and navigate to the location where you extracted the ZIP file.
 1. Type the following commands in the terminal to install the required dependencies:<br>
-'''
+```
   pip install pandas
-'''
+  pip install openxyl
+```
 ![image](https://user-images.githubusercontent.com/91906368/231220274-bc3bde1c-3257-41f0-aa8f-6f6f8c9475ea.png)
 ## Running the Scheduler
 1. To run the scheduler, navigate to the extracted folder in your terminal/command prompt window.
