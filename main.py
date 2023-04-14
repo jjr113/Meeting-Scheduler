@@ -25,6 +25,7 @@ def schedule_meetings():
     # Initialize the meetings dictionary
     meetings = {}
     matches = []
+    meetings_2way = {}
     # Iterate over each row of the dataframe
     for i in range(len(df)):
         # Get the name of the person
@@ -53,8 +54,12 @@ def schedule_meetings():
                 # Add the current person to the list of people they have already met with
                 if name not in meetings:
                     meetings[name] = []
+                if name not in meetings_2way:
+                    meetings_2way[name] = []
                 if person not in meetings:
                     meetings[person] = []
+                if person not in meetings_2way:
+                    meetings_2way[person] = []
                 if person not in meetings[name]:
                     # Check if the desired person also wants to meet with the current person
                     if person in meetings:
@@ -62,14 +67,17 @@ def schedule_meetings():
                             # Add the match to the list of matches
                             matches.append((name, person))
                     meetings[name].append(person)
+                    meetings_2way[name].append(person)
+                    meetings_2way[person].append(name)
+
 
     # Display the scheduled meetings in the GUI
     results_text.delete(1.0, tk.END)
     results_text.insert(tk.END, "Scroll to the bottom for matches...\n\n")
-    for person1 in meetings:
+    for person1 in meetings_2way:
         if person1 in df['What is your name?'].values:
-            results_text.insert(tk.END, f"{person1} wants to meet with:\n")
-            for person2 in meetings[person1]:
+            results_text.insert(tk.END, f"{person1} could meet with:\n")
+            for person2 in meetings_2way[person1]:
                 results_text.insert(tk.END, f"  {person2}\n")
             results_text.insert(tk.END, "\n")
     
