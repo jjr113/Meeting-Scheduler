@@ -68,7 +68,7 @@ def schedule_meetings():
     results_text.insert(tk.END, "Scroll to the bottom for matches...\n\n")
     for person1 in meetings:
         if person1 in df['What is your name?'].values:
-            results_text.insert(tk.END, f"{person1} is scheduled to meet with:\n")
+            results_text.insert(tk.END, f"{person1} wants to meet with:\n")
             for person2 in meetings[person1]:
                 results_text.insert(tk.END, f"  {person2}\n")
             results_text.insert(tk.END, "\n")
