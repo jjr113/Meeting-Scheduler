@@ -40,18 +40,27 @@ def schedule_meetings():
                 desired = desired.split('; ')
             else:
                 desired = []
-                
+
+            # Change affiliate to cooresponding name if noticed affiliate name in desired
+            x=0
+            for person in desired:
+                if person in affiliation_to_person:
+                    desired[x] = affiliation_to_person[person]
+                x+=1
+
             # Iterate over each desired person
             for person in desired:
                 # Add the current person to the list of people they have already met with
                 if name not in meetings:
                     meetings[name] = []
-
+                if person not in meetings:
+                    meetings[person] = []
                 if person not in meetings[name]:
                     # Check if the desired person also wants to meet with the current person
-                    if person in desired:
-                        # Add the match to the list of matches
-                        matches.append((name, person))
+                    if person in meetings:
+                        if name in meetings[person]:
+                            # Add the match to the list of matches
+                            matches.append((name, person))
                     meetings[name].append(person)
 
     # Display the scheduled meetings in the GUI
@@ -60,11 +69,7 @@ def schedule_meetings():
         if person1 in df['What is your name?'].values:
             results_text.insert(tk.END, f"{person1} is scheduled to meet with:\n")
             for person2 in meetings[person1]:
-                # If person is an affiliate name
-                if person2 in affiliation_to_person:
-                    results_text.insert(tk.END, f"  {affiliation_to_person[person2]}\n")
-                else:
-                    results_text.insert(tk.END, f"  {person2}\n")
+                results_text.insert(tk.END, f"  {person2}\n")
             results_text.insert(tk.END, "\n")
     
     # Display matches in the GUI
