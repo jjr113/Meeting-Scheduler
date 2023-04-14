@@ -78,6 +78,7 @@ def schedule_meetings():
         person1, person2 = match
         if person1 in df['What is your name?'].values and person2 in df['What is your name?'].values:
             results_text.insert(tk.END, f"{person1} and {person2} have been matched!\n")
+    results_text.config(state=tk.DISABLED)
 
 
 
@@ -99,6 +100,9 @@ run_button.pack()
 
 # Create the results text box
 results_text = tk.Text(root)
+scrollbar = tk.Scrollbar(root, command=results_text.yview)
+results_text.config(yscrollcommand=scrollbar.set)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 results_text.pack()
 
 root.mainloop()
