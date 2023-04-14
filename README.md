@@ -4,7 +4,7 @@ This repository contains the code for a one-on-one scheduler for MDS-Rely Resear
 ## Prerequisites
 * Python 3.x installed on your system <br>
 * pip (Python package manager) installed on your system <br>
-* NOTE: The spreadsheet column "Who would you like to meet with? (Check up to 5)" needs to either contain the EXACT name from "What is your name?" or "What is your affiliation?" columns. If there is more than one desired person to meet with then seperate each entry with ";". If the spreadsheet being used does not follow these specific rules then this algorithm will NOT work.
+* NOTE: If the spreadsheet being used does not follow these specific rules then this algorithm will NOT work. The spreadsheet column "Who would you like to meet with? (Check up to 5)" needs to either contain the EXACT name from "What is your name?" or "What is your affiliation?" columns. If there is more than one desired person to meet with then seperate each entry with ";".
 ## Installation
 1. Download the code by clicking on the green "Code" button at the top of the page and selecting "Download ZIP"
 2. Extract the downloaded ZIP file to your desired location
