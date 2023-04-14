@@ -65,6 +65,7 @@ def schedule_meetings():
 
     # Display the scheduled meetings in the GUI
     results_text.delete(1.0, tk.END)
+    results_text.insert(tk.END, "Scroll to the bottom for matches...\n\n")
     for person1 in meetings:
         if person1 in df['What is your name?'].values:
             results_text.insert(tk.END, f"{person1} is scheduled to meet with:\n")
