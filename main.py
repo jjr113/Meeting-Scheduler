@@ -6,9 +6,25 @@ def schedule_meetings():
     # Read in the data
     df = pd.read_excel(file_entry.get())
 
+    # Create a dictionary to map affiliations to person names
+    affiliation_to_person = {}
+    for i in range(len(df)):
+        name = df.iloc[i]['What is your name?']
+        affiliation = df.iloc[i]['What is your affiliation?']
+        if pd.notnull(name) and pd.notnull(affiliation):
+            affiliation_to_person[affiliation] = name
+
+    # Create a dictionary to map affiliations to person names
+    person_to_affiliate  = {}
+    for i in range(len(df)):
+        name = df.iloc[i]['What is your name?']
+        affiliation = df.iloc[i]['What is your affiliation?']
+        if pd.notnull(name) and pd.notnull(affiliation):
+            person_to_affiliate [name] = affiliation
+
     # Initialize the meetings dictionary
     meetings = {}
-
+    matches = []
     # Iterate over each row of the dataframe
     for i in range(len(df)):
         # Get the name of the person
@@ -26,19 +42,17 @@ def schedule_meetings():
                 desired = []
                 
             # Iterate over each desired person
-            for person2 in desired:
-                # If the person is not already in the meetings dictionary, add them
-                if person2 not in meetings:
-                    meetings[person2] = []
-                    
-                # Add the current person to the list of people they want to meet with
-                if name not in meetings[person2]:
-                    meetings[person2].append(name)
-                    
+            for person in desired:
                 # Add the current person to the list of people they have already met with
                 if name not in meetings:
                     meetings[name] = []
-                meetings[name].append(person2)
+
+                if person not in meetings[name]:
+                    # Check if the desired person also wants to meet with the current person
+                    if person in desired:
+                        # Add the match to the list of matches
+                        matches.append((name, person))
+                    meetings[name].append(person)
 
     # Display the scheduled meetings in the GUI
     results_text.delete(1.0, tk.END)
@@ -46,8 +60,21 @@ def schedule_meetings():
         if person1 in df['What is your name?'].values:
             results_text.insert(tk.END, f"{person1} is scheduled to meet with:\n")
             for person2 in meetings[person1]:
-                results_text.insert(tk.END, f"  {person2}\n")
+                # If person is an affiliate name
+                if person2 in affiliation_to_person:
+                    results_text.insert(tk.END, f"  {affiliation_to_person[person2]}\n")
+                else:
+                    results_text.insert(tk.END, f"  {person2}\n")
             results_text.insert(tk.END, "\n")
+    
+    # Display matches in the GUI
+    results_text.insert(tk.END, "\nMatches:\n")
+    for match in matches:
+        person1, person2 = match
+        if person1 in df['What is your name?'].values and person2 in df['What is your name?'].values:
+            results_text.insert(tk.END, f"{person1} and {person2} have been matched!\n")
+
+
 
 # Create the GUI
 root = tk.Tk()
